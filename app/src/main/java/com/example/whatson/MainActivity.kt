@@ -51,37 +51,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
   WhatsOnTheme {
-    Scaffold(topBar = {
-      TopAppBar(backgroundColor = Color.Magenta, elevation = 5.dp) {
-        Text(text = "What's On")
-      }
-    }) {
-      content()
-      it.calculateBottomPadding()
-    }
-  }
-}
 
-@Composable
-fun MainContent(movieList: List<String> = listOf(
-  "Avatar 2",
-  "The Batman",
-  "Twilight: Breaking Dawn",
-  "Dungeons & Dragons",
-  "Extraction 2",
-  "John Wick 4",
-  "65"
-)) {
-  Column(modifier = Modifier.padding(12.dp)) {
-    LazyColumn {
-      items(items = movieList) {
-        MovieRow(movie = it) {movie ->
-          Log.d("TAG", "MainContent: $movie")
-        }
-      }
-    }
   }
-
 }
 
 @Composable
