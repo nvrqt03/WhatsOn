@@ -14,23 +14,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.whatson.MovieRow
+import com.example.whatson.navigation.MovieScreens
 
 @Composable
 fun Homescreen(navController: NavController) {
   Scaffold(
     topBar = {
-      TopAppBar(backgroundColor = Color.Magenta, elevation = 5.dp) {
-        Text(text = "What's On")
+      TopAppBar(backgroundColor = Color.LightGray, elevation = 5.dp) {
+        Text(text = "Movie Details")
       }
-    },) {
+    },
+  ) {
     MainContent(navController = navController)
   }
 }
 
-  @Composable
-  fun MainContent(
-    navController: NavController,
-    movieList: List<String> = listOf(
+@Composable
+fun MainContent(
+  navController: NavController,
+  movieList: List<String> = listOf(
     "Avatar 2",
     "The Batman",
     "Twilight: Breaking Dawn",
@@ -38,16 +40,16 @@ fun Homescreen(navController: NavController) {
     "Extraction 2",
     "John Wick 4",
     "65"
-  )) {
-    Column(modifier = Modifier.padding(12.dp)) {
-      LazyColumn {
-        items(items = movieList) {
-          MovieRow(movie = it) {movie ->
-            Log.d("TAG", "MainContent: $movie")
-          }
+  )
+) {
+  Column(modifier = Modifier.padding(12.dp)) {
+    LazyColumn {
+      items(items = movieList) {
+        MovieRow(movie = it) { movie ->
+          Log.d("TAG", "MainContent: $movie")
+          navController.navigate(route = MovieScreens.DetailsScreen.name + "/$movie")
         }
       }
     }
-
   }
 }
