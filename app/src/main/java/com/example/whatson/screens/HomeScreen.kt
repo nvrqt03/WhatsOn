@@ -20,7 +20,7 @@ import com.example.whatson.navigation.MovieScreens
 fun Homescreen(navController: NavController) {
   Scaffold(
     topBar = {
-      TopAppBar(backgroundColor = Color.LightGray, elevation = 5.dp) {
+      TopAppBar(backgroundColor = Color.Transparent, elevation = 0.dp) {
         Text(text = "Movie Details")
       }
     },

@@ -30,7 +30,7 @@ import androidx.navigation.NavController
 fun DetailsScreen(navController: NavController, movieData: String?) {
   Scaffold(
     topBar = {
-      TopAppBar(backgroundColor = Color.LightGray, elevation = 5.dp) {
+      TopAppBar(backgroundColor = Color.Transparent, elevation = 0.dp) {
         Row(horizontalArrangement = Arrangement.Start) {
           Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Arrow back",
             modifier = Modifier.clickable {
@@ -42,10 +42,15 @@ fun DetailsScreen(navController: NavController, movieData: String?) {
       }
     }
   ) {
-    Surface(modifier = Modifier
-      .fillMaxHeight()
-      .fillMaxWidth()) {
-      Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+    Surface(
+      modifier = Modifier
+        .fillMaxHeight()
+        .fillMaxWidth()
+    ) {
+      Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+      ) {
         Text(text = movieData.toString(), style = MaterialTheme.typography.h5)
         Spacer(modifier = Modifier.height(23.dp))
       }
